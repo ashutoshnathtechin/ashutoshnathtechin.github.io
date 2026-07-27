@@ -1,5 +1,5 @@
 import React from 'react';
-import Typewriter from './Typewriter';
+import Reveal from './Reveal';
 
 const Skills = () => {
   const getSkillIcon = (name) => {
@@ -18,60 +18,39 @@ const Skills = () => {
     }
   };
 
-  const skillCategories = [
-    {
-      title: "Languages",
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />,
-      skills: ["Python", "JavaScript", "SQL", "HTML5", "CSS3"]
-    },
-    {
-      title: "Databases",
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />,
-      skills: ["MySQL", "MongoDB", "Oracle Database"]
-    },
-    {
-      title: "Dev Tools",
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />,
-      skills: ["Git", "GitHub", "Visual Studio Code", "Jupyter Notebook", "GitHub Actions"]
-    },
-    {
-      title: "OS / Others",
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />,
-      skills: ["Windows", "Linux", "Responsive Web Design", "Vercel Deployment"]
-    },
-    {
-      title: "Productivity",
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />,
-      skills: ["MS Word", "MS Excel", "MS PowerPoint"]
-    }
+  const skills = [
+    "Python", "JavaScript", "SQL", "HTML5", "CSS3",
+    "MySQL", "MongoDB", "Oracle Database",
+    "Git", "GitHub", "Visual Studio Code", "Jupyter Notebook", "GitHub Actions",
+    "Windows", "Linux", "Responsive Web Design", "Vercel Deployment",
+    "MS Word", "MS Excel", "MS PowerPoint"
   ];
 
   return (
-    <section id="skills" className="scroll-mt-32">
-      <h2 className="text-4xl font-black mb-10 flex items-center gap-4 text-slate-900 dark:text-white">
-        <svg className="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-        <Typewriter text="Technical Skills" delay={150} />
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {skillCategories.map((category, index) => (
-          <div key={index} className="glass-panel p-8 rounded-3xl group hover:border-blue-500/50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-            <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {category.icon}
+    <section id="skills" className="w-full relative z-10">
+      <div className="flex items-center gap-4 mb-12">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">
+          Technical Skills
+        </h2>
+        <div className="flex-1 h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+      </div>
+      
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6">
+        {skills.map((skill, index) => (
+          <Reveal key={index} delay={(index % 5) * 50} direction="up" className="group">
+            <div className="relative flex flex-col items-center justify-center p-6 bg-white/50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] dark:hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] cursor-pointer">
+              {/* Subtle spotlight effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <svg className="w-12 h-12 mb-4 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 transform group-hover:-translate-y-1" fill="currentColor" viewBox="0 0 24 24">
+                {getSkillIcon(skill)}
               </svg>
-              {category.title}
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {category.skills.map((skill, sIndex) => (
-                <div key={sIndex} className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:border-blue-500 dark:hover:border-blue-400 transition-colors shadow-sm">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    {getSkillIcon(skill)}
-                  </svg>
-                  {skill}
-                </div>
-              ))}
+              
+              <span className="font-bold text-sm text-slate-800 dark:text-slate-200 text-center">
+                {skill}
+              </span>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

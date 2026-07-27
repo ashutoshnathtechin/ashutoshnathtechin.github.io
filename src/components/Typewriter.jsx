@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Typewriter = ({ text, delay = 100, className = "" }) => {
+const Typewriter = ({ text, delay = 100 }) => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -15,12 +15,7 @@ const Typewriter = ({ text, delay = 100, className = "" }) => {
     }
   }, [currentIndex, delay, text]);
 
-  return (
-    <span className={className}>
-      {currentText}
-      <span className="animate-pulse border-r-2 border-current ml-1"></span>
-    </span>
-  );
+  return <span>{currentText}</span>;
 };
 
 export default Typewriter;

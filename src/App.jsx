@@ -6,6 +6,8 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Competencies from './components/Competencies';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import BackgroundBlobs from './components/BackgroundBlobs';
 import Reveal from './components/Reveal';
 import FloatingIcons from './components/FloatingIcons';
@@ -40,12 +42,12 @@ function App() {
             <Competencies />
           </Reveal>
           
+          <Contact />
+          
         </main>
-        
-        <footer className="py-8 text-center text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
-          <p>&copy; {new Date().getFullYear()} {USERNAME}. All rights reserved.</p>
-        </footer>
       </div>
+      
+      <Footer />
     </>
   );
 }

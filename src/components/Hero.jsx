@@ -10,25 +10,35 @@ const Hero = () => {
         {/* Text Content */}
         <Reveal direction="left" className="flex-1">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h2 className="text-xl md:text-2xl font-bold text-slate-500 dark:text-slate-400 mb-2">Hello, I am</h2>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter" style={{ fontFamily: "'Playfair Display', serif, sans-serif" }}>
-              Ashutosh Nath
+            <div className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-slate-200/50 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 backdrop-blur-sm mb-6">
+              <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                Hello
+              </span>
+              <span className="inline-block animate-wave text-xl">👋</span>
+              <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                , I'm
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-400 animate-gradient-x">Ashutosh Nath</span>
             </h1>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 mb-8 min-h-[40px]">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-800 dark:from-slate-300 dark:to-slate-500 mb-8 min-h-[60px]">
               <Typewriter text="Software Developer" delay={100} />
             </h3>
             
-            <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
-              Motivated and detail-oriented B.Sc. Physics graduate with a strong analytical mindset and a passion for software development. Proficient in HTML, CSS, JavaScript, Python, Flask, SQL, and Git/GitHub, with hands-on experience building responsive web applications and full-stack projects. Quick learner with excellent problem-solving abilities.
+            <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-medium">
+              Motivated and detail-oriented B.Sc. Physics graduate with a strong analytical mindset and a passion for software development. Proficient in HTML, CSS, JavaScript, Python, Flask, SQL, and Git/GitHub, with hands-on experience building responsive web applications and full-stack projects.
             </p>
             
             {/* Social & Contact */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
               <a
-                href="mailto:ashutoshnath.tech.in@gmail.com"
-                className="px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
+                href="tel:+917416031432"
+                className="group relative px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-full overflow-hidden transition-transform hover:scale-105 shadow-[0_0_40px_rgba(37,99,235,0.3)] dark:shadow-[0_0_40px_rgba(255,255,255,0.2)]"
               >
-                Contact Me
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact Me</span>
               </a>
               <div className="flex gap-4">
                 <a href="https://github.com/ashutoshnathtechin" target="_blank" rel="noopener noreferrer" className="p-3.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors shadow-md">

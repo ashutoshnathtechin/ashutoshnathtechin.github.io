@@ -10,28 +10,31 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="scroll-mt-32">
-      <Reveal direction="up">
-        <h2 className="text-4xl font-black mb-10 flex items-center gap-4 text-slate-900 dark:text-white">
-          <svg className="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-          <Typewriter text="Certifications" delay={150} />
+    <section id="certifications" className="w-full relative z-10">
+      <div className="flex items-center gap-4 mb-12">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">
+          Certifications
         </h2>
-      </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex-1 h-px bg-gradient-to-r from-pink-500/50 to-transparent"></div>
+      </div>
+      
+      <div className="flex flex-col gap-6">
         {certs.map((cert, index) => (
-          <Reveal key={index} direction="left" delay={index * 150}>
-            <a
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-panel p-8 rounded-3xl group hover:-translate-y-3 hover:scale-105 transition-all duration-300 hover:border-blue-500 hover:shadow-[0_20px_50px_rgba(59,130,246,0.2)] flex flex-col items-center text-center gap-5 h-full"
-            >
-              <div className="w-20 h-20 bg-blue-100 dark:bg-blue-600/20 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          <Reveal key={index} direction="left" delay={index * 100}>
+            <a href={cert.link} target="_blank" rel="noopener noreferrer" className="group relative block bg-white/50 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 p-6 md:p-8 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.15)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative z-10 flex items-center gap-5">
+                <div className="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl md:text-2xl text-slate-900 dark:text-white mb-2 group-hover:text-pink-500 transition-colors">{cert.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 font-medium">{cert.org}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{cert.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 font-semibold">{cert.org}</p>
+              <div className="relative z-10 w-full sm:w-auto text-center px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl group-hover:bg-pink-600 group-hover:text-white transition-colors shadow-sm">
+                View Credential &rarr;
               </div>
             </a>
           </Reveal>
