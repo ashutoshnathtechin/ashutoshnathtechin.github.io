@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300 antialiased;
+  }
+  .dark body {
+    @apply bg-slate-900 text-slate-100;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xl;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+/* Animations */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-fade {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.2; }
+  33% { transform: translate(80px, -100px) rotate(45deg) scale(1.2); opacity: 0.6; }
+  66% { transform: translate(-60px, -60px) rotate(90deg) scale(0.8); opacity: 0.3; }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.2; }
+}
+
+@keyframes float-fade-reverse {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.1; }
+  33% { transform: translate(-80px, -80px) rotate(-45deg) scale(0.8); opacity: 0.5; }
+  66% { transform: translate(70px, -30px) rotate(-90deg) scale(1.2); opacity: 0.2; }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.1; }
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animate-float-fade {
+  animation: float-fade 3.5s ease-in-out infinite;
+}
+.animate-float-fade-reverse {
+  animation: float-fade-reverse 4s ease-in-out infinite;
+}
+.animate-float-fade-slow {
+  animation: float-fade 5s ease-in-out infinite;
+}
+.animate-pop {
+  animation: pop 0.4s ease-out forwards;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
